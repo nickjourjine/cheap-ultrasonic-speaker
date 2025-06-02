@@ -4,7 +4,7 @@ This repository contains a parts list and a protocol for assembling an ultrasoni
 
 **Motivation**:  
 
-Bioacoustics researchers studying rodents and bats need microphones for ultrasonic sound playback. There are very few options that are not extremely expensive. This protocol is intended for researchers who need a relatively cheap option for ultrasound playback, but do not have extensive experience with electronics or sound systems.
+Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive. This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
 
 **Warnings and disclaimers**:  
 
