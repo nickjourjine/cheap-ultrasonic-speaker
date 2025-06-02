@@ -8,9 +8,11 @@ Bioacoustics researchers studying rodents and bats need microphones for ultrason
 
 **Warnings and disclaimers**:  
 
-1. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If you not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
+1. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
 
-2. This protocol uses a microphone with a published upper frequency limit of 40 kHz, which is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-80 kHz range with minimal distoriton. Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it.
+2. This protocol uses a microphone with a published upper frequency limit of 40 kHz, which is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-80 kHz range with minimal distortion. Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it.
+
+3. This microphone system is wired, and will require a power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/)
 
 ## Parts list
 
@@ -31,7 +33,7 @@ Bioacoustics researchers studying rodents and bats need microphones for ultrason
 
 `HiFi Berry DAC2-pro Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
 
-`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals approprioately before they reach the speaker itself, and is usually extremely expensive. The XH-M542 is about as cheap as you can get.  
+`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself, and is usually extremely expensive. The XH-M542 is about as cheap as you can get.  
 
 `Fountek Speaker`: Where the sound happens. This is a reasonably priced ribbon tweeter capable of playing ultrasonic sound (although see warning). You will attach it directly to the amplifier.  
 
@@ -58,13 +60,13 @@ The above parts constitute the speaker system. The following are tools that will
 
 1. Attach the microSD card to your computer using the microSD card adapter.  
 2. Go to https://www.raspberrypi.com/software/ and download the Raspberry Pi imager. This should get you an interface that walks you through the steps to download the Raspberry Pi operating system for your version of Raspberry Pi (I use 3B here) to your microSD card.  
-3. Once that finishes succesfully, eject the microSD card from your computer, and slide it into the microSD card slot of your Raspberry Pi.  
+3. Once that finishes successfully, eject the microSD card from your computer, and slide it into the microSD card slot of your Raspberry Pi.  
 
 ### Step 2: Set up the Raspberry Pi
 1. Attach the monitor to the Raspberry Pi using the HDMI cable.  
 2. Connect the keyboard and mouse to the Raspberry Pi's USB ports.  
 3. Connect the Raspberry Pi and monitor to power sources.  
-4. You should see a Raspberry Pi welcome screen while it runs through some checks, then follow the set up instructions (location, time zone, wifi, etc.).  
+4. You should see a Raspberry Pi welcome screen while it runs through some checks, then follow the setup instructions (location, time zone, wifi, etc.).  
 5. Now you should see an intuitive desktop with date/time and wifi in the upper right and a little black "terminal icon" in the upper left.  
 
 ### Step 3: Attach the Sound Card to the Raspberry Pi
@@ -77,10 +79,10 @@ The above parts constitute the speaker system. The following are tools that will
 2. Click on the little black terminal icon - it should be in the upper left on the desktop. 
 3. This should open a terminal window where you can type commands and generally interact with the Raspberry Pi. 
 4. Go to the "boot" folder, where the `config.txt` configuration file is, either by navigating to it using the mouse or typing `cd \boot\` into the terminal window.
-5. Make a copy of the configuration file (in case you need to start) over by using the Desktop interface or typing `cp \boot\config.txt \boot\config_backup.txt`
+5. Make a copy of the configuration file (in case you need to start over) by using the Desktop interface or typing `cp \boot\config.txt \boot\config_backup.txt`
 6. Now open the `config.txt` file, find the line with `dtoverlay`, and replace whatever is there with `dtoverlay=hifiberry-dacplus`
 7. Reboot the Raspberry Pi by typing `sudo reboot` into the terminal window and hitting enter.
-8. Now in the terminal, type `cat /proc/asound/cards`. You should see this something like the following, indicating that the Hifiberry sound card is recognized.  
+8. Now in the terminal, type `cat /proc/asound/cards`. You should see something like the following, indicating that the Hifiberry sound card is recognized.  
 ```
 0 [sndrpihifiberry]: HifiberryDacp - snd_rpi_hifiberry_dacplus
 					 snd_rpi_hifiberry_dacplus
@@ -137,9 +139,9 @@ into the Terminal.
 
 5. Repeat 1-4 for as many files as you need for playback.
 
-6. Now you should be ready to package everything in a more stable arrangement. Depending on your needs, this could involve welding the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. I have used the set up below in the field to play back mouse ultrasonic calls into boxes containing groups of mice:
+6. Now you should be ready to package everything in a more stable arrangement. Depending on your needs, this could involve welding the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. I have used the setup below in the field to play back mouse ultrasonic calls into boxes containing groups of mice:
 
-![Playback set up for mouse nest boxes](images/USV_playback_assembly.png)
+![Playback setup for mouse nest boxes](images/USV_playback_assembly.png)
 
 
 
