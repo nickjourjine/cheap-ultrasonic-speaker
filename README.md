@@ -107,8 +107,39 @@ Save the file and reboot the Raspberry Pi (`sudo reboot`).
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
+2. 
+
 ## Test the speaker
-1. 
+1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a USB stick.
+2. Attach this USB stick to your Raspberry Pi
+3. You should now be able to find your files and play them using pulseaudio. For example:
+
+```
+play path/to/ultrasonic_calls.wav
+```
+
+will play your file.
+
+```
+play path/to/ultrasonic_calls.wav repeat 3
+```
+
+will play your file 3 times.
+
+See the example_playback_script.sh script in this repository for an example playback experiment. You can run it on your own Raspberry Pi by copying it to the same directory as your audio file, then typing 
+
+```
+sh example_playback_script.sh
+```
+into the Terminal.
+
+4. I suggest playing around with this while recording the playback using a microphone set at a distance that approximately matches the distance from the microphone to the vocalizing animal at the time of the recording. Change the gain on the amplifier (hence the loudness of the playback) by turning the screw marked "VOL", but note that this screw is EXTREMELY sensitive. Be careful not to blow out your speaker. Tune the gain until the amplitude of the playback call matches that for the original audio. Depending on your needs, this match can be approximate.
+
+5. Repeat 1-4 for as many files as you need for playback.
+
+6. Now you should be ready to package everything in a more stable arrangement. Depending on your needs, this could involve welding the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. I have used the set up below in the field to play back mouse ultrasonic calls into boxes containing groups of mice:
+
+![Playback set up for mouse nest boxes](images/USV_playback_assembly.png)
 
 
 
