@@ -99,7 +99,7 @@ Save the file and reboot the Raspberry Pi (`sudo reboot`).
 ## Connect the Raspberry Pi + Sound Card to the amplifier and speaker
 1. Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
 
-[Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
+![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
 ## Test the speaker
 1. Unfortunately, validating the speaker output requires one expensive piece of equipment that is not included above: a microphone capable of detecting ultrasound. This is one option that is on the less expensive end of possibilities: https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone
