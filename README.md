@@ -1,6 +1,6 @@
 # A cheap ultrasonic speaker
 
-This repository contains a parts list and a protocol for assembling an ultrasonic microphone for ~$200.
+This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200.
 
 **Motivation**:  
 
