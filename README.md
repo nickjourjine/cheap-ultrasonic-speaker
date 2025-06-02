@@ -2,9 +2,15 @@
 
 This repository contains a parts list and a protocol for assembling an ultrasonic microphone for ~$200.
 
-**Motivation and audience**: Bioacoustics researchers studying rodents and bats need microphones for ultrasonic sound playback. There are very few options that are not extremely expensive. This protocol is intended for researchers who need a relatively cheap option for ultrasound playback, but do not have extensive experience with electronics or sound systems.
+**Motivation**:  
 
-**Warning**: This protocol uses a microphone with a published upper frequency limit of 40 kHz, which is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-80 kHz range with minimal distoriton. Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it.
+Bioacoustics researchers studying rodents and bats need microphones for ultrasonic sound playback. There are very few options that are not extremely expensive. This protocol is intended for researchers who need a relatively cheap option for ultrasound playback, but do not have extensive experience with electronics or sound systems.
+
+**Warnings and disclaimers**:  
+
+1. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If you not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
+
+2. This protocol uses a microphone with a published upper frequency limit of 40 kHz, which is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-80 kHz range with minimal distoriton. Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it.
 
 ## Parts list
 
@@ -102,7 +108,7 @@ Save the file and reboot the Raspberry Pi (`sudo reboot`).
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
 ## Test the speaker
-1. Unfortunately, validating the speaker output requires one expensive piece of equipment that is not included above: a microphone capable of detecting ultrasound. This is one option that is on the less expensive end of possibilities: https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone
+1. 
 
 
 
