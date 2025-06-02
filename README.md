@@ -1,4 +1,4 @@
-# A cheap ultrasonic microphone
+# A cheap ultrasonic speaker
 
 This repository contains a parts list and a protocol for assembling an ultrasonic microphone for ~$200.
 
@@ -108,8 +108,6 @@ Save the file and reboot the Raspberry Pi (`sudo reboot`).
 1. Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
-
-2. 
 
 ## Test the speaker
 1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a USB stick.
