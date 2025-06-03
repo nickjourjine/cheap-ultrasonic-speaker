@@ -42,7 +42,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 ### Additional materials that make set up easier
 
-The above parts constitute the speaker system. The following are tools that will make using the system easier by allowing you to interact with the Raspberry Pi like a normal computer. Using these is the most straightforward way to use the Raspberry Pi, but if you only have access to a personal computer, you can also connect remotely. Instructions for doing that can be found [here](https://www.raspberrypi.com/documentation/computers/remote-access.html).  
+The above parts constitute the speaker system. The following are tools that will make using the system easier by allowing you to interact with the Raspberry Pi like a normal computer. I think this is the approach that requires the least technical know-how, but if you only have access to a personal computer, you can also connect remotely. Instructions for doing that can be found [here](https://www.raspberrypi.com/documentation/computers/remote-access.html).  
 
 
 | Item                   | Link                                                                                                                       | Price (USD) |
