@@ -122,27 +122,27 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
 1. Prepare your wires  
-	a. Take two alligator clip wires (ideally one black and one red), cut off one end of each with scissors, then strip the cut end to expose the copper wire. You will use these to connect the OUT terminal of the amplifier to the speaker. Expose just enough wire to be able to securely clamp it into the amplifier terminals. For example:
+	**a**. Take two alligator clip wires (ideally one black and one red), cut off one end of each with scissors, then strip the cut end to expose the copper wire. You will use these to connect the OUT terminal of the amplifier to the speaker. Expose just enough wire to be able to securely clamp it into the amplifier terminals. For example:
 	
 	![stripped wires](images/stripped_wires.jpg)
 	
-	b. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
-	c. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). After cutting off the plug, you should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.
+	**b**. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
+	**c**. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). After cutting off the plug, you should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.
 	
 2. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
 	
 3. Connect the sound card to the amplifier using your wires with two stripped ends  
-    a. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
+    **a**. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
 		
-	![DAC2 Pro](images/dac2_pro.jpg)
+	![DAC2 Pro](images/DAC2_pro.jpg)
 	
 	Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note were are only wiring for one audio channel.
 	
-	b. Connect the black ground wire to the - port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until it is secure.
+	**b**. Connect the black ground wire to the - (negative) port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until secure.
 	
-	c. Do the same to connect the red wire to the + port on the amplifier IN terminal. 
+	**c**. Do the same to connect the red wire to the + (positive) port on the amplifier IN terminal. 
 	
-4. **Without plugging the power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+4. **Without plugging the amplifier power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
 
 5. Connect the speaker to the amplifier. Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
 
@@ -150,7 +150,14 @@ Now you should have something that looks roughly like this:
 
 ![connected setup](images/connected_setup.jpg)
 
-To give everything power: plug in the Raspberry Pi and amplifier power sources into outlets. Be careful and double check all voltages first, this is DIY electrical wiring here.
+To give everything power, all you need to do is plug in the Raspberry Pi and amplifier power sources into outlets. 
+
+**Be careful!** This is DIY electrical wiring here. Before powering on, check:
+
+    - No loose wires, all terminal clamps are tight and secure
+	- Make sure all + wires connect to +, all - to -
+	- Make sure there are no stray or exposed wires that could potentially touch
+	- Double check the voltage of the power supply is correct.
 
 
 ## Test the speaker
