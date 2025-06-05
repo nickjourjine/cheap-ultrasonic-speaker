@@ -154,10 +154,10 @@ To give everything power, all you need to do is plug in the Raspberry Pi and amp
 
 **Be careful!** This is DIY electrical wiring here. Before powering on, check:
 
-    - No loose wires, all terminal clamps are tight and secure
-	- Make sure all + wires connect to +, all - to -
-	- Make sure there are no stray or exposed wires that could potentially touch
-	- Double check the voltage of the power supply is correct.
+   - No loose wires, all terminal clamps are tight and secure
+   - Make sure all + wires connect to +, all - to -
+   - Make sure there are no stray or exposed wires that could potentially touch
+   - Double check the voltage of the power supply is correct
 
 
 ## Test the speaker
