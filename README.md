@@ -24,7 +24,8 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 | 64 GB microSD card  | https://www.amazon.com/SanDisk-Extreme-microSDXC-Memory-Adapter/dp/B09X7C7LL1                                                                                                                                                                  | 11.27       |
 | Fountek Speaker     | https://www.audiophonics.fr/en/tweeter/fountek-neo-cd10-speaker-driver-ribbon-tweeter-20w-5-ohm-90db-2000hz-40khz-o38cm-p-2865.html                                                                                                            | 90.36       |
 | 12V/18W/1.5A power supply | https://www.amazon.com/Chanzon-Switching-100-240V-Transformer-Security/dp/B07G12L4SC                                              | 13.99       |
-| Wires with Alligator clips| https://www.amazon.com/WGGE-WG-026-Pieces-Colors-Alligator/dp/B06XX25HFX | 5.69       |  
+| Alligator clip wires | https://www.amazon.com/WGGE-WG-026-Pieces-Colors-Alligator/dp/B06XX25HFX | 5.69       |  
+| Breadboard wires  | https://www.amazon.com/California-JOS-Breadboard-Optional-Multicolored/dp/B0BRTHR2RL/ | 3.99
 
 
 ### Parts description
@@ -107,9 +108,39 @@ default-sample-rate = 192000
 Save the file and reboot the Raspberry Pi (`sudo reboot`).
 
 ## Connect the Raspberry Pi + Sound Card to the amplifier and speaker
-1. Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
+Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
+
+1. Prepare your wires  
+	a. Take two alligator clip wires (ideally one black and one red), cut off one end of each with scissors, then strip the cut end to expose the metal wire. You will use these to connect the OUT terminal of the aplifier to the speaker
+	b. Do the same for a two breadboard wires (cut off one end, leaving the female adapter on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier
+	c. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). Inside you should find two smaller wires, one with black insulation and one with red. Strip both of them as in (a) and (b). You will attach these ends to the VCC terminal of the amplifier.
+	
+2. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
+	
+3. Connect the sound card to the amplifier using your wires with two stripped ends  
+    a. Find the sound card analog output pins: these are next to the red audio jack and are labaled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
+	
+	![DAC2 Pro](images/dac2_pro.png)
+	
+	Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4).
+	
+	b. Connect the black ground wire to the - port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until it is secure.
+	
+	c. Do the same to connect the red wire to the + port on the amplifier IN terminal. 
+	
+4. **Without plugging the power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+
+5. Connect the speaker to the amplifier. Insert the stripped end of the black alligator clip into the - port of the amplilfiers OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
+
+Now you should have something that looks roughly like this:
+
+![connected setup](images/connected_setup.png)
+
+
+To give everything power: plug in the Raspberry Pi and ampflier power sources into outlets. Be careful and double check all voltages first, this is DIY electrical wiring here.
+
 
 ## Test the speaker
 1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a USB stick.
