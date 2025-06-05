@@ -88,18 +88,20 @@ The above parts constitute the speaker system. The following are tools that will
 					 snd_rpi_hifiberry_dacplus
 ```
 
-### Step 4: Reset the maximum frequency imposed by Raspberry Pi to match the sample rate of your files.
-1. The software that will actually play sounds is called pulseaudio, and should come pre-installed with the Raspberry Pi operating system. You can confirm this by typing `pactl list` into the command line and not getting an error. If for some reason you don't have it, just make sure you are connected to the internet and type `sudo apt-get install pulseaudio`.
-2. By default, pulseaudio imposes a maximum sample rate of 44100 Hz, which is not high enough to play most ultrasonic animal calls. You can override this default by editing the pulseaudio configuration file, `daemon.conf`, which should be located in the folder: `/etc/pulse/`
+### Step 4: Reset the maximum frequency imposed by pulseaudio to match the sample rate of your files.
+1. In order to play sound, the Raspberyy Pi needs two software programs: SoX, the audio player that actually plays the sound, and PulseAudio, an audio server that interfaces between SoX and the sound card. Both should come pre-installed with the Raspberry Pi operating system - you can confirm this by running `sox --version` (to confirm SoX) and `pulseaudio --version` (to confirm pulseaudio). If for any reason you need to download these, just make sure you are connected to the internet and do `sudo apt install sox` and/or `sudo apt install pulseaudio`
+2. SoX is capable of playing ultrasound, but pulseaudio imposes a maximum frequency of (usually) 44100 Hz or 48000 Hz. That means that even if you play an ultrasonic call and have a sound card capable of handling its high sampling rate, puleaudio will down-sample to 44100 or 48000 Hz before sending data to the sound card. 
+3. Fortunately, you can override this default by editing the pulseaudio configuration file, `daemon.conf`, which should be located in the folder: `/etc/pulse/`
 3. Open `daemon.conf` and look for the line that says something like
 
 ```
 ; default-sample-rate = 44100
 ```
 
-Update the value to match the sample rate of the audio files you want to play back, e.g. 
+Note that the semi-colon indicates that this is commented out. Update the value to match the sample rate of the audio files you want to play back and uncomment, e.g. 
+
 ```
-; default-sample-rate = 192000
+default-sample-rate = 192000
 ```
 
 Save the file and reboot the Raspberry Pi (`sudo reboot`).
@@ -112,7 +114,7 @@ Save the file and reboot the Raspberry Pi (`sudo reboot`).
 ## Test the speaker
 1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a USB stick.
 2. Attach this USB stick to your Raspberry Pi
-3. You should now be able to find your files and play them using pulseaudio. For example:
+3. You should now be able to find your files and play them. For example:
 
 ```
 play path/to/ultrasonic_calls.wav
@@ -124,13 +126,26 @@ will play your file.
 play path/to/ultrasonic_calls.wav repeat 3
 ```
 
-will play your file 3 times.
+will play your file 3 times.  
 
-See the example_playback_script.sh script in this repository for an example playback experiment. You can run it on your own Raspberry Pi by copying it to the same directory as your audio file, then typing 
+You can also play synthetic sounds, which can be a good way to test sensitivity across a frequency range. For example,
 
 ```
-sh example_playback_script.sh
+play -n synth 2 sin 70000 vol -10dB
 ```
+
+will play a 70 kHz sine wav for 2 seconds (using vol -10dB to reduce output volume)
+
+See the example_playback_loop.sh script in this repository for an example playback experiment, and examlpe_sensitivity_test.sh for a script that loops through synthetic tones at different ultrasonic frequencies. You can run it on your own Raspberry Pi by copying it to the same directory as your audio file, then typing 
+
+```
+sh example_playback_loop.sh
+```
+or
+```
+sh example_sensitivity_test.sh
+```
+
 into the Terminal.
 
 4. I suggest playing around with this while recording the playback using a microphone set at a distance that approximately matches the distance from the microphone to the vocalizing animal at the time of the recording. Change the gain on the amplifier (hence the loudness of the playback) by turning the screw marked "VOL", but note that this screw is EXTREMELY sensitive. Be careful not to blow out your speaker. Tune the gain until the amplitude of the playback call matches that for the original audio. Depending on your needs, this match can be approximate.
