@@ -141,6 +141,9 @@ into the Terminal.
 
 ![Playback setup for mouse nest boxes](images/USV_playback_assembly.png)
 
+## Acknowledgements
+
+Thank you to Ralph Peterson, who played a huge part in helping me design, assemble, and troubleshoot this speaker.
 
 
 
