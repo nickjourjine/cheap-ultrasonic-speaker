@@ -199,7 +199,7 @@ into the Terminal.
 
 4. I suggest playing around with this while recording the playback using a microphone set at a distance that approximately matches the distance from the microphone to the vocalizing animal at the time of the recording. Change the gain on the amplifier (hence the loudness of the playback) by turning the screw marked "VOL", but note that this screw is EXTREMELY sensitive. Be careful not to blow out your speaker. Tune the gain until the amplitude of the playback call matches that for the original audio. Depending on your needs, this match can be approximate. Here's an example of what that might look like:
 
-[playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
+![playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
 
 5. Repeat 1-4 for as many files as you need for playback.
 
@@ -209,7 +209,7 @@ into the Terminal.
 
 ## Acknowledgements
 
-Thank you to Ralph Peterson, who played a huge part in helping me design, assemble, and troubleshoot this speaker.
+Thank you to Ralph Peterson, who was extremely helpful with the assembly and troubleshooting of this system.
 
 
 
