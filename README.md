@@ -207,7 +207,7 @@ into the Terminal.
 
 ## Acknowledgements
 
-Thank you to Ralph Peterson, who was extremely helpful with puttin this system together.
+Thank you to Ralph Peterson, who was extremely helpful with getting this system to work.
 
 
 
