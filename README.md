@@ -59,7 +59,7 @@ The above parts constitute the speaker system. The following are tools that will
 | HDMI cable             | https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SSD0/                                            | 7.19        |
 | microSD adapter        | https://www.amazon.com/uni-Adapter-Supports-Compatible-MacBook/dp/B081VHSB2V/                                              | 9.99        |
 
-## Set up the Raspberry Pi + HiFi Sound Card
+## Set up the Raspberry Pi and HiFiBerry Sound Card
 
 ### Step 1: Download the Raspberry Pi operating system onto your microSD card
 
@@ -116,7 +116,7 @@ default-sample-rate = 192000
 
 Save the file and reboot the Raspberry Pi (`sudo reboot`).
 
-## Step 6: Wire everything together
+## Wire everything together
 Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram kindly made by Ralph Peterson:
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
