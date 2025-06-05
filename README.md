@@ -134,7 +134,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 3. Connect the sound card to the amplifier using your wires with two stripped ends  
     **a**. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
 		
-	![DAC2 Pro](images/DAC2_pro.jpg)
+	![DAC2 Pro](images/DAC2_pro.png)
 	
 	Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note were are only wiring for one audio channel.
 	
@@ -197,19 +197,17 @@ sh path/to/example_sensitivity_test.sh
 
 into the Terminal.
 
-4. I suggest playing around with this while recording the playback using a microphone set at a distance that approximately matches the distance from the microphone to the vocalizing animal at the time of the recording. Change the gain on the amplifier (hence the loudness of the playback) by turning the screw marked "VOL", but note that this screw is EXTREMELY sensitive. Be careful not to blow out your speaker. Tune the gain until the amplitude of the playback call matches that for the original audio. Depending on your needs, this match can be approximate. Here's an example of what that might look like:
+4. I suggest playing around with these while recording the speaker output using an ultrasonic microphone. You might consider setting the microphone at a distance from the speaker that matches the distance from the microphone to the vocalizing animal at the time of the recording. This will allow you to (approximately) match the loudness of the call to the loudness of the vocalizing animal. To change loudness, change the gain on the amplifier by turning the screw marked "VOL", but note that this screw is **EXTREMELY** sensitive. Be careful not to blow out your speaker. Here's an example of what a testing setup with microphone might look like:
 
 ![playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
 
-5. Repeat 1-4 for as many files as you need for playback.
-
-6. Now you should be ready to package everything in a more stable arrangement. Depending on your needs, this could involve soldering the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. I have used the setup below in the field to play back mouse ultrasonic calls into boxes containing groups of mice:
+6. Once you have the files you want to play back calibrated to the loudness you want, you're ready to package the speaker in a more stable arrangement. Depending on your needs, this could involve soldering the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. For example, the setup below was used to play back ultrasonic mouse calls into boxes containing groups of mice:
 
 ![Playback setup for mouse nest boxes](images/USV_playback_assembly.png)
 
 ## Acknowledgements
 
-Thank you to Ralph Peterson, who was extremely helpful with the assembly and troubleshooting of this system.
+Thank you to Ralph Peterson, who was extremely helpful with assembly and troubleshooting of this system.
 
 
 
