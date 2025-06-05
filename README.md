@@ -116,8 +116,8 @@ default-sample-rate = 192000
 
 Save the file and reboot the Raspberry Pi (`sudo reboot`).
 
-## Step 6: wire everything together
-Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
+## Step 6: Wire everything together
+Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram kindly made by Ralph Peterson:
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
