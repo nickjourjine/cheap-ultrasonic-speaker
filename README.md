@@ -122,7 +122,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 3. Connect the sound card to the amplifier using your wires with two stripped ends  
     a. Find the sound card analog output pins: these are next to the red audio jack and are labaled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
 	
-	![DAC2 Pro](images/dac2_pro.png)
+![DAC2 Pro](images/dac2_pro.jpg)
 	
 	Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4).
 	
@@ -136,7 +136,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 
 Now you should have something that looks roughly like this:
 
-![connected setup](images/connected_setup.png)
+![connected setup](images/connected_setup.jpg)
 
 
 To give everything power: plug in the Raspberry Pi and ampflier power sources into outlets. Be careful and double check all voltages first, this is DIY electrical wiring here.
