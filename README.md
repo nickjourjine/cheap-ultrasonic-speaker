@@ -16,7 +16,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 3. This speaker system will require a wired power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/)
 
-## Parts list
+## Parts list (prices approximate, as of June 2025)
 
 | Item                | Link                                                                                                                                                                                                                                           | Price (USD) |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
@@ -47,7 +47,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 `Breadboard wires`: These are the wires that will connect the Raspberry Pi to the amplifier (at least during prototyping).
 
 
-### Additional materials that make set up easier
+### Additional materials that make set up easier (prices approximate, as of June 2025)
 
 The above parts constitute the speaker system. The following are tools that will make using the system easier by allowing you to interact with the Raspberry Pi like a normal computer. I think this is the approach that requires the least technical know-how, but if you only have access to a personal computer, you can also connect remotely. Instructions for doing that can be found [here](https://www.raspberrypi.com/documentation/computers/remote-access.html).  
 
