@@ -1,10 +1,12 @@
 # A cheap ultrasonic speaker
 
-This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200.
+This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200. It is a modified version of the design presented here by Ralph Peterson and colleagues:
+
+Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
 **Motivation**:  
 
-Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive. This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
+Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive, typically >$1,000 and sometimes even [>$5,000](https://avisoft.com/price-list-ordering-information/). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
 
 **Warnings and disclaimers**:  
 
@@ -205,9 +207,11 @@ into the Terminal.
 
 ![Playback setup for mouse nest boxes](images/USV_playback_assembly.png)
 
+For another example about how to package everything together, check out the reference at top of the page (note that Peterson et al. use a different amplifier).
+
 ## Acknowledgements
 
-Thank you to Ralph Peterson, who was extremely helpful with getting this system to work.
+Thank you to Ralph Peterson and Jörg Rychen, who were both extremely helpful with designing and troubleshooting this system.
 
 
 
