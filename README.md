@@ -209,6 +209,10 @@ into the Terminal.
 
 For another example about how to package everything together, check out the reference at top of the page (note that Peterson et al. use a different amplifier).
 
+## Issues?
+
+If you have questions or run into problems while trying to follow this protocol, let me know by raising an issue! Just click the `Issues` button at the top of the page, then the big green `New Issue` button.
+
 ## Acknowledgements
 
 Thank you to Ralph Peterson and Jörg Rychen, who were both extremely helpful with designing and troubleshooting this system.
