@@ -1,18 +1,18 @@
 # A cheap ultrasonic speaker
 
-This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200. It is a modified version of the design presented here by Ralph Peterson and colleagues:
+This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200. It is based on the design presented here by Ralph Peterson and colleagues:
 
 Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
-**Motivation**:  
+**Motivation and Audience**:  
 
-Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive, typically >$1,000 and sometimes even [>$5,000](https://avisoft.com/price-list-ordering-information/). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
+Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive (typically >$1,000 and sometimes even [>$5,000](https://avisoft.com/price-list-ordering-information/)). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
 
 **Warnings and disclaimers**:  
 
 1. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
 
-2. This protocol uses a speaker with a published upper frequency limit of 40 kHz, which is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion. Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it.
+2. This protocol uses a speaker that has not been officially tested by its manufacturer at frequencies above 40 kHz. This is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion, and was used [here](https://www.biorxiv.org/content/10.1101/2024.09.20.613758v1) to produce 60 KHz ultrasonic Gerbil vocalizations. **Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it**.
 
 3. This speaker system will require a wired power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/)
 
@@ -36,7 +36,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 `HiFiBerry DAC2-pro Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
 
-`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does.
+`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does. Thank you to Jörg Rychen for tipping me off to its existence.
 
 `Fountek Speaker`: Where the sound happens. This is a reasonably priced ribbon tweeter capable of playing ultrasonic sound (although see warning). You will attach it directly to the amplifier.  
 
@@ -73,13 +73,13 @@ The above parts constitute the speaker system. The following are tools that will
 1. Attach the monitor to the Raspberry Pi using the HDMI cable.  
 2. Connect the keyboard and mouse to the Raspberry Pi's USB ports.  
 3. Connect the Raspberry Pi and monitor to power sources.  
-4. You should see a Raspberry Pi welcome screen while it runs through some checks, then follow the setup instructions (location, time zone, wifi, etc.).  
+4. You should see a Raspberry Pi welcome screen while it runs through some checks, then the setup steps (location, time zone, wifi, etc.). Follow them until completion.
 5. Now you should see an intuitive desktop with date/time and wifi in the upper right and a little black "terminal icon" in the upper left.  
 
 ### Step 3: Attach the Sound Card to the Raspberry Pi
 1. Power off the Raspberry Pi.
 2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide Sound Card pins onto two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the pins out again and risk bending/damaging them.
-3. Now slide the sound card firmly onto the pins and screw in the little white posts. 
+3. Now slide the sound card firmly but carefully onto the Raspberry Pi pins. Screw in the little white posts. 
 
 ### Step 4: Configure the Raspberry Pi to recognize the sound card
 1. Now power on the Raspberry Pi and connect to the monitor as in step 1.
@@ -123,38 +123,40 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 
 ![Wiring diagram by Ralph Peterson](images/wiring_diagram.png)
 
-1. Prepare your wires  
-	**a**. Take two alligator clip wires (ideally one black and one red), cut off one end of each with scissors, then strip the cut end to expose the copper wire. You will use these to connect the OUT terminal of the amplifier to the speaker. Expose just enough wire to be able to securely clamp it into the amplifier terminals. For example:
-	
-	![stripped wires](images/stripped_wires.jpg)
-	
-	**b**. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
-	**c**. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). After cutting off the plug, you should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.
-	
-2. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
-	
-3. Connect the sound card to the amplifier using your wires with two stripped ends  
-    **a**. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
-		
-	![DAC2 Pro](images/DAC2_pro.png)
-	
-	Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note were are only wiring for one audio channel.
-	
-	**b**. Connect the black ground wire to the - (negative) port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until secure.
-	
-	**c**. Do the same to connect the red wire to the + (positive) port on the amplifier IN terminal. 
-	
-4. **Without plugging the amplifier power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+### Step 1: Prepare your wires
+**a**. Take two alligator clip wires (ideally one black and one red), cut off one end of each with scissors, then strip the cut end to expose the copper wire. You will use these to connect the OUT terminal of the amplifier to the speaker. Expose just enough wire to be able to securely clamp it into the amplifier terminals. For example:
 
-5. Connect the speaker to the amplifier. Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
+![stripped wires](images/stripped_wires.jpg)
+
+**b**. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
+**c**. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). You should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.
+**d**. Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
+	
+### Step 2: Connect the sound card to the amplifier 
+**a**. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
+
+![DAC2 Pro](images/DAC2_pro.png)
+
+Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note were are only wiring for one audio channel.
+
+**b**. Connect the black ground wire to the - (negative) port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until secure.
+
+**c**. Do the same to connect the red wire to the + (positive) port on the amplifier IN terminal. 
+
+### Step 3: Attach the amplifier power source 
+**Without plugging the amplifier power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+
+### Step 4: Connect the amplifier to the speaker
+Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
 
 Now you should have something that looks roughly like this:
 
 ![connected setup](images/connected_setup.jpg)
 
+### Step 5: Power on
 To give everything power, all you need to do is plug in the Raspberry Pi and amplifier power sources into outlets. 
 
-**Be careful!** This is DIY electrical wiring here. Before powering on, check:
+**Be careful!** This is DIY electrical wiring here. Before powering on:
 
    - Make sure there are no loose wires and that all terminal clamps are tight and secure
    - Make sure all + terminals connect to +, all - to -
@@ -215,7 +217,7 @@ If you have questions or run into problems while trying to follow this protocol,
 
 ## Acknowledgements
 
-Thank you to Ralph Peterson and Jörg Rychen, who were both extremely helpful with designing and troubleshooting this system.
+Thank you to Ralph Peterson, Caspar Goedecker, and Jörg Rychen, who were all extremely helpful with designing and troubleshooting this system.
 
 
 
