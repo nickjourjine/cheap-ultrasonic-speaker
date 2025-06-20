@@ -14,9 +14,9 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 2. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
 
-3. This speaker system will require a wired power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/)
+3. This speaker system will require a wired power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/).
 
-4. Building this speaker will require some basic DIY electronics. You can find some good guides for best practices and getting started [here](https://www.binarytechlabs.com/getting-started-with-arduino-a-beginners-guide-to-building-diy-electronics/) and [here](https://www.elecrow.com/blog/Things-You-Must-Know-To-Be-DIY-Electronics-Hobbyists.html?srsltid=AfmBOoqA0fdxYqJPKYh4bE6bLcPSiOM9yhJ3g427o_FcP-q6hOKkD6g0)
+4. Building this speaker will require some basic DIY electronics. You can find some good guides for best practices and getting started [here](https://www.binarytechlabs.com/getting-started-with-arduino-a-beginners-guide-to-building-diy-electronics/) and [here](https://www.elecrow.com/blog/Things-You-Must-Know-To-Be-DIY-Electronics-Hobbyists.html?srsltid=AfmBOoqA0fdxYqJPKYh4bE6bLcPSiOM9yhJ3g427o_FcP-q6hOKkD6g0).
 
 ## Parts list (prices approximate, as of June 2025)
 
@@ -80,7 +80,7 @@ The above parts constitute the speaker system. The following are tools that will
 
 ### Step 3: Attach the Sound Card to the Raspberry Pi
 1. Power off the Raspberry Pi.
-2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide Sound Card onto two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the pins out again and risk bending/damaging them.
+2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide the sound card onto the two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the card off again and risk bending/damaging them pins.
 3. Now slide the sound card firmly but carefully onto the Raspberry Pi pins. Screw in the little white posts. 
 
 ### Step 4: Configure the Raspberry Pi to recognize the sound card
