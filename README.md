@@ -132,7 +132,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 
 2. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
 
-3. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). You should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.  
+3. Take your (**unplugged!!**) 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). You should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.  
 
 4. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
 	
