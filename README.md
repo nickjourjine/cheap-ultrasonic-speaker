@@ -1,6 +1,6 @@
 # A cheap ultrasonic speaker
 
-This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200. It is based on the design presented here by Ralph Peterson and colleagues:
+This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$200. It is a modification of the design presented here by Ralph Peterson and colleagues:
 
 Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
@@ -8,13 +8,15 @@ Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., 
 
 Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive (typically >$1,000 and sometimes even [>$5,000](https://avisoft.com/price-list-ordering-information/)). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
 
-**Warnings and disclaimers**:  
+**Warnings and disclaimers**: 
 
-1. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
+1. This protocol uses a speaker that has not been officially tested by its manufacturer at frequencies above 40 kHz. This is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion, and was used [here](https://www.biorxiv.org/content/10.1101/2024.09.20.613758v1) to produce 60 KHz ultrasonic Gerbil vocalizations. **Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it**.
 
-2. This protocol uses a speaker that has not been officially tested by its manufacturer at frequencies above 40 kHz. This is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion, and was used [here](https://www.biorxiv.org/content/10.1101/2024.09.20.613758v1) to produce 60 KHz ultrasonic Gerbil vocalizations. **Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it**.
+2. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
 
 3. This speaker system will require a wired power source. For use in the field, you might consider a [portable power station](https://www.amazon.com/Portable-Solar-Panel-Power-Station-Generator-Charger/dp/B08G1KB88B/)
+
+4. Building this speaker will require some basic DIY electronics. You can find some good guides for best practices and getting started [here](https://www.binarytechlabs.com/getting-started-with-arduino-a-beginners-guide-to-building-diy-electronics/) and [here](https://www.elecrow.com/blog/Things-You-Must-Know-To-Be-DIY-Electronics-Hobbyists.html?srsltid=AfmBOoqA0fdxYqJPKYh4bE6bLcPSiOM9yhJ3g427o_FcP-q6hOKkD6g0)
 
 ## Parts list (prices approximate, as of June 2025)
 
@@ -36,9 +38,9 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 `HiFiBerry DAC2-pro Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
 
-`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does. Thank you to Jörg Rychen for tipping me off to its existence.
+`XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does. Thank you to the amazing [Jörg Rychen](https://services.ini.uzh.ch/admin/modules/uzh/person.php?id=38740) for tipping me off to its existence!
 
-`Fountek Speaker`: Where the sound happens. This is a reasonably priced ribbon tweeter capable of playing ultrasonic sound (although see warning). You will attach it directly to the amplifier.  
+`Fountek Speaker`: Where the sound happens. This is a reasonably priced ribbon tweeter capable of playing ultrasonic sound (although see disclaimer above). You will attach it directly to the amplifier.  
 
 `12V/18W/1.5A power supply`: This is the required power supply for the XH-M542 amplifier. 
 
@@ -57,7 +59,7 @@ The above parts constitute the speaker system. The following are tools that will
 | wired mouse            | https://www.amazon.com/Logitech-B100-Corded-Mouse-Computers/dp/B003L62T7W/                                                 | 7.99        |
 | HDMI monitor           | https://www.amazon.com/HAMTYSAN-Raspberry-Pi-Monitor-Non-Touch/dp/B0B8S9DYQC/                                              | 35.99       |
 | keyboard               | https://www.amazon.com/AmazonBasics-Matte-Keyboard-QWERTY-Layout/dp/B07WJ5D3H4                                             | 14.63       |
-| headphones for troubleshooting (no ultrasound) | https://www.amazon.com/Maxell-High-Quality-Headphones-Adjustable-Lightweight/dp/B00006JPRN/                                | 5.99        |
+| headphones for troubleshooting (will not play ultrasound) | https://www.amazon.com/Maxell-High-Quality-Headphones-Adjustable-Lightweight/dp/B00006JPRN/                                | 5.99        |
 | HDMI cable             | https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SSD0/                                            | 7.19        |
 | microSD adapter        | https://www.amazon.com/uni-Adapter-Supports-Compatible-MacBook/dp/B081VHSB2V/                                              | 9.99        |
 
@@ -78,7 +80,7 @@ The above parts constitute the speaker system. The following are tools that will
 
 ### Step 3: Attach the Sound Card to the Raspberry Pi
 1. Power off the Raspberry Pi.
-2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide Sound Card pins onto two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the pins out again and risk bending/damaging them.
+2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide Sound Card onto two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the pins out again and risk bending/damaging them.
 3. Now slide the sound card firmly but carefully onto the Raspberry Pi pins. Screw in the little white posts. 
 
 ### Step 4: Configure the Raspberry Pi to recognize the sound card
@@ -116,7 +118,7 @@ then
 default-sample-rate = 192000
 ```
 
-Save the file and reboot the Raspberry Pi (`sudo reboot`).
+Save the file and reboot the Raspberry Pi as above (`sudo reboot`).
 
 ## Wire everything together
 Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram kindly made by Ralph Peterson:
@@ -129,8 +131,10 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 ![stripped wires](images/stripped_wires.jpg)
 
 2. Do the same for two breadboard wires (cut off one end, leaving the socket end on, and strip to reveal wire). You will use these to connect the sound card to the IN terminal of the amplifier.  
-3. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). You should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.
-4. Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
+
+3. Take your 12 V power source and cut the end off of it (i.e., the "plug" that you would normally insert into an appliance). You should see two smaller wires inside the cable. One wire carries the positive voltage, and the other is negative. Typically, the red wire is positive and the black wire is negative, but when in doubt double-check using a multimeter or follow any markings on the cable that indicate which is which.  
+
+4. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
 	
 ### Step 2: Connect the sound card to the amplifier 
 1. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 Pro documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
@@ -144,7 +148,7 @@ Insert the red breadboard wire onto the left pin (pin 6), and the black breadboa
 3. Do the same to connect the red wire to the + (positive) port on the amplifier IN terminal. 
 
 ### Step 3: Attach the amplifier power source 
-**Without plugging the amplifier power source into an outlet**, connect the power source to the VCC terminal on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+**Without plugging the amplifier power source into an outlet**, connect the power source to the terminal labeled VCC on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
 
 ### Step 4: Connect the amplifier to the speaker
 Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
@@ -161,12 +165,12 @@ To give everything power, all you need to do is plug in the Raspberry Pi and amp
    - Make sure there are no loose wires and that all terminal clamps are tight and secure
    - Make sure all + terminals connect to +, all - to -
    - Make sure there are no stray or exposed wires that could potentially touch
-   - Double check the voltage of the power supply is correct
+   - Double check that the voltage and current provided by the power supply is correct
 
 
 ## Test the speaker
-1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a USB stick.
-2. Attach this USB stick to your Raspberry Pi
+1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a small USB stick.
+2. Attach this USB stick to one of ht USB ports on your Raspberry Pi
 3. You should now be able to find your files and play them. For example:
 
 ```
