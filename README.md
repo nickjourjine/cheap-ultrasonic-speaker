@@ -36,7 +36,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 `Raspberry Pi 3B`: The small computer that will control the speaker and run any code for playback experiments.  
 
-`HiFiBerry DAC2-pro Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
+`HiFiBerry DAC2 PRO Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
 
 `XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does. Thank you to the amazing [Jörg Rychen](https://services.ini.uzh.ch/admin/modules/uzh/person.php?id=38740) for tipping me off to its existence!
 
