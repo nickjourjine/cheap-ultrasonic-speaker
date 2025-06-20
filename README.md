@@ -80,7 +80,7 @@ The above parts constitute the speaker system. The following are tools that will
 
 ### Step 3: Attach the Sound Card to the Raspberry Pi
 1. Power off the Raspberry Pi.
-2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry **before** you slide the sound card onto the two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the card off again and risk bending/damaging them pins.
+2. The sound card likely comes with some little white plastic pegs to help secure it on top of the Raspberry Pi. Screw those into the corners of the Raspberry Pi **before** you slide the sound card onto the two rows of pins (40 total) on the Raspberry Pi. Otherwise you will have to pull the card off again and risk bending/damaging them pins.
 3. Now slide the sound card firmly but carefully onto the Raspberry Pi pins. Screw in the little white posts. 
 
 ### Step 4: Configure the Raspberry Pi to recognize the sound card
