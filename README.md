@@ -209,15 +209,17 @@ into the Terminal.
 
 ![playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
 
-Here is an example of the kind of signal we recorded with this setup
+Here is an example of the kind of signal we recorded with the setup above:
 
 ![example playback test](images/playback_comparison.png)
 
+```
 Top image: original audio recorded with an Avisoft CM16/CMPA microphone at a distance of 15 cm from a vocalizing mouse
 
 Bottom image: playback of the top recording with our cheap ultrasonic speaker, recorded at a distance of 15 cm from the speaker with an Avisoft CM16/CMPA microphone
 
 Note: The original audio was recorded in a sound attenuating chamber, while unfortunately it was not possible to do so while testing the speaker (the best we had available was an office space with the door closed). The gain on the microphone during the original recording was unknown, so we could not exactly match it to the gain of the microphone used for testing in the bottom image. Both of these factors probably contribute to the increased background signal recorded during playback. I expect that it could be reduced (but probably not eliminated) by a judicious choice of amplifier gain, ensuring that the all wiring of the system is tight and secure, and by twisting together + and - wires to reduce interference (which we did not do for the recording shown above).
+```
 
 6. Once you have the files you want to play back calibrated to the loudness you want, you're ready to package the speaker in a more stable arrangement. Depending on your needs, this could involve soldering the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. For example, the setup below was used to play back ultrasonic mouse calls into boxes containing groups of mice:
 
