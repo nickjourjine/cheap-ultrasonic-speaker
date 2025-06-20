@@ -6,11 +6,11 @@ Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., 
 
 **Motivation and Audience**:  
 
-Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive (typically >$1,000 and sometimes even [>$5,000](https://avisoft.com/price-list-ordering-information/)). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
+Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive (sometimes [>$4,500](https://avisoft.com/price-list-ordering-information/)). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
 
 **Warnings and disclaimers**: 
 
-1. This protocol uses a speaker that has not been officially tested by its manufacturer at frequencies above 40 kHz. This is below the frequency of many ultrasonic calls made by rodents and bats. However, in my experience it is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion, and was used [here](https://www.biorxiv.org/content/10.1101/2024.09.20.613758v1) to produce 60 KHz ultrasonic Gerbil vocalizations. **Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it**.
+1. This protocol uses a speaker that has not been officially tested by its manufacturer at frequencies above 40 kHz. This is below the frequency of many ultrasonic calls made by rodents and bats. However, we have validated *qualitatively* that is is capable of producing ultrasonic mouse calls in the 60-70 kHz range with no visible distortion (although some low background hiss). It was also used [here](https://www.biorxiv.org/content/10.1101/2024.09.20.613758v1) to produce 60 KHz ultrasonic Gerbil vocalizations. **Please consider whether this caveat will be critical for your experiment, and verify that the system is capable of producing your calls at the quality you need before you use it**.
 
 2. Verifying that you have a working playback system will require an ultrasonic microphone. Hopefully, if you are recording your own calls for playback, you have access to one already. If not, you might consider a bat detector like [this one](https://batmanagement.com/collections/bat-detector-buyers-guide-active-detectors/products/pettersson-u256-microphone), which is on the less expensive end. You can find several other high-end ultrasonic microphones from a company called [Avisoft](https://avisoft.com/).  
 
@@ -208,6 +208,16 @@ into the Terminal.
 4. I suggest playing around with these while recording the speaker output using an ultrasonic microphone. You might consider setting the microphone at a distance from the speaker that matches the distance from the microphone to the vocalizing animal at the time of the recording. This will allow you to (approximately) match the loudness of the call to the loudness of the vocalizing animal. To change loudness, change the gain on the amplifier by turning the screw marked "VOL", but note that this screw is **EXTREMELY** sensitive. Be careful not to blow out your speaker. Here's an example of what a testing setup with microphone might look like:
 
 ![playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
+
+Here is an example of the kind of signal we recorded with this setup
+
+![example playback test](images/playback_comparison.png)
+
+Top image: original audio recorded with an Avisoft CM16/CMPA microphone at a distance of 15 cm from a vocalizing mouse
+
+Bottom image: playback of the top recording with our cheap ultrasonic speaker, recorded at a distance of 15 cm from the speaker with an Avisoft CM16/CMPA microphone
+
+Note: The original audio was recorded in a sound attenuating chamber, while unfortunately it was not possible to do so while testing the speaker (the best we had available was an office space with the door closed). The gain on the microphone during the original recording was unknown, so we could not exactly match it to the gain of the microphone used for testing in the bottom image. Both of these factors probably contribute to the increased background signal recorded during playback. I expect that it could be reduced (but probably not eliminated) by a judicious choice of amplifier gain, ensuring that the all wiring of the system is tight and secure, and by twisting together + and - wires to reduce interference (which we did not do for the recording shown above).
 
 6. Once you have the files you want to play back calibrated to the loudness you want, you're ready to package the speaker in a more stable arrangement. Depending on your needs, this could involve soldering the wires to the speaker instead of using alligator clips, putting everything in a plastic case, etc. For example, the setup below was used to play back ultrasonic mouse calls into boxes containing groups of mice:
 
