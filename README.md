@@ -137,7 +137,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 4. **Without plugging the Raspberry Pi power source into an outlet**, plug the USB end into the Raspberry Pi's power port.
 	
 ### Step 2: Connect the sound card to the amplifier 
-1. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 PRO ocumentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
+1. Find the sound card analog output pins: these are next to the red audio jack and are labeled L (left), GND (ground), and R (right), indicated by "5" below, from the [DAC2 PRO documentation](https://www.hifiberry.com/docs/data-sheets/datasheet-dac2-adc-pro/)
 
 ![DAC2 PRO](images/DAC2_pro.png)
 
@@ -148,7 +148,7 @@ Insert the red breadboard wire onto the left pin (pin 6), and the black breadboa
 3. Do the same to connect the red wire to the + (positive) port on the amplifier IN terminal. 
 
 ### Step 3: Attach the amplifier power source 
-**Without plugging the amplifier power source into an outlet**, connect the power source to the terminal labeled VCC on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black wire from the power source, and tighten. Do the same for the red wire in the power source and the + clamp of the VCC terminal.
+**Without plugging the amplifier power source into an outlet**, connect the power source to the terminal labeled VCC on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black (-) wire from the power source, and tighten. Do the same for the red (+) wire in the power source and the + clamp of the VCC terminal.
 
 ### Step 4: Connect the amplifier to the speaker
 Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
@@ -170,7 +170,7 @@ To give everything power, all you need to do is plug in the Raspberry Pi and amp
 
 ## Test the speaker
 1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a small USB stick.
-2. Attach this USB stick to one of ht USB ports on your Raspberry Pi
+2. Attach this USB stick to one of the USB ports on your Raspberry Pi
 3. You should now be able to find your files and play them. For example:
 
 ```
@@ -205,7 +205,7 @@ sh path/to/example_sensitivity_test.sh
 
 into the Terminal.
 
-4. I suggest playing around with these while recording the speaker output using an ultrasonic microphone. You might consider setting the microphone at a distance from the speaker that matches the distance from the microphone to the vocalizing animal at the time of the recording. This will allow you to (approximately) match the loudness of the call to the loudness of the vocalizing animal. To change loudness, change the gain on the amplifier by turning the screw marked "VOL", but note that this screw is **EXTREMELY** sensitive. Be careful not to blow out your speaker. Here's an example of what a testing setup with microphone might look like:
+4. I suggest playing around with these while recording the speaker output using an ultrasonic microphone. You might consider setting the microphone at a distance from the speaker that matches the distance from the microphone to the vocalizing animal at the time of the recording. This will allow you to (approximately) match the loudness of the call to the loudness of the vocalizing animal. To change loudness, change the gain on the amplifier by turning the screw marked "VOL", but note that this screw is **EXTREMELY** sensitive. Be careful not to blow out your speaker. Here's an example of what a testing setup with microphone might look like (note that this is not an ideal setup: if you can, recreate it in a sound attenuating chamber to reduce background ambient noise):
 
 ![playback test with mic](images/speaker_with_ultrasonic_mic.jpg)
 
