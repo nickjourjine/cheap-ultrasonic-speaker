@@ -1,9 +1,14 @@
 # A cheap ultrasonic speaker
 
-This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$220. It is a modification of the design presented here by Ralph Peterson and colleagues:
+This repository contains a parts list and a protocol for assembling an ultrasonic speaker for ~$285 (before tax and shipping). It is a modification of the design presented here by Ralph Peterson and colleagues:
 
 Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
+
+**Update: 2026-05-20**:
+
+The [Fountek CD1.0 speaker](https://www.audiophonics.fr/en/tweeter/fountek-neo-cd10-speaker-driver-ribbon-tweeter-20w-5-ohm-90db-2000hz-40khz-o38cm-p-2865.html) originally listed in this repository has been discontinued. It has been replaced with the (more expensive) [NEOCD3.0 Ribbon Tweeter](https://www.madisoundspeakerstore.com/ribbon-tweeters/fountek-neocd3.0m-blk-3-ribbon-tweeter-round-flange-black). Note that the test below was carried out with the now discontinued CD1.0. Other much cheaper speakers (e.g., [the Dayton Audio AMT Mini-8](https://www.audiophonics.fr/en/tweeter/dayton-audio-amt-mini-8-speaker-driver-ribbon-tweeter-air-motion-transformer-neodymium-15w-8-ohm-88db-3500hz-40khz-p-10183.html)) might be suitable for your needs. If you have found cheaper options and validated them for ultrasound playback, please raise an issue and I will add them!
+ 
 **Motivation and audience**:  
 
 Bioacoustics researchers studying rodents and bats need speakers for ultrasonic sound playback. There are very few options that are not extremely expensive (sometimes [>$4,500](https://avisoft.com/price-list-ordering-information/)). This protocol is intended for those who need a relatively cheap option for ultrasound playback, and who do not have extensive experience with electronics or sound systems.
@@ -18,16 +23,16 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 4. Building this speaker will require some basic DIY electronics. You can find some good guides for best practices and getting started [here](https://www.binarytechlabs.com/getting-started-with-arduino-a-beginners-guide-to-building-diy-electronics/) and [here](https://www.elecrow.com/blog/Things-You-Must-Know-To-Be-DIY-Electronics-Hobbyists.html?srsltid=AfmBOoqA0fdxYqJPKYh4bE6bLcPSiOM9yhJ3g427o_FcP-q6hOKkD6g0).
 
-## Parts list (prices approximate, as of June 2025)
+## Parts list (prices approximate, as of May 2026)
 
 | Item                | Link                                                                                                                                                                                                                                           | Price (USD) |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | Raspberry Pi 3B     | https://www.adafruit.com/product/3055                                                                                                                                                                                                          | 35.00          |
 | HiFiBerry DAC2 PRO Sound Card   | https://www.hifiberry.com/shop/boards/dac2-pro/                                                                                                                                                                                                | 44.90        |
 | XH-M542 Amplifier    | https://www.amazon.com/XH-M542-TPA3116DA-Amplifier-TPA3116D2-Capacity/dp/B07Z461JZX                                                                                                                                                            | 12.93       |
-| 64 GB microSD card  | https://www.amazon.com/SanDisk-Extreme-microSDXC-Memory-Adapter/dp/B09X7C7LL1                                                                                                                                                                  | 12.31       |
-| Fountek Speaker     | https://www.audiophonics.fr/en/tweeter/fountek-neo-cd10-speaker-driver-ribbon-tweeter-20w-5-ohm-90db-2000hz-40khz-o38cm-p-2865.html                                                                                                            | 91.08       |
-| 12V/18W/1.5A power supply | https://www.amazon.com/Chanzon-Switching-100-240V-Transformer-Security/dp/B07G12L4SC                                              | 13.99       |
+| 64 GB microSD card  | https://www.amazon.com/SanDisk-Extreme-microSDXC-Memory-Adapter/dp/B09X7C7LL1                                                                                                                                                                  | 24.26       |
+| Fountek Speaker     | https://www.madisoundspeakerstore.com/ribbon-tweeters/fountek-neocd3.0m-blk-3-ribbon-tweeter-round-flange-black.html                                                                                                            | 143.90       |
+| 12V/18W/1.5A power supply | https://www.amazon.com/Chanzon-Switching-100-240V-Transformer-Security/dp/B07G12L4SC                                              | 12.79       |
 | Alligator clip wires | https://www.amazon.com/WGGE-WG-026-Pieces-Colors-Alligator/dp/B06XX25HFX | 5.79       |  
 | Breadboard wires  | https://www.amazon.com/California-JOS-Breadboard-Optional-Multicolored/dp/B0BRTHR2RL/ | 3.99 |
 
