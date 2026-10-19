@@ -5,6 +5,7 @@ This repository contains a parts list and a protocol for assembling an ultrasoni
 Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
 **Update: 2026-10-08**:
+
 Drs. Manu Madhav and Amy Wong at the [University of British Columbia](https://www.nc4.sbme.ubc.ca/our-team) have contributed troubleshooting tips using a Raspberry Pi 4B running Linux kernel 6.1.77. These tips have now been added as notes to steps 4 and 5 below. Thank you to both of them for their contribution!
 
 **Update: 2026-05-20**:
