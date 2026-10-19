@@ -261,7 +261,7 @@ If you have questions or run into problems while trying to follow this protocol,
 
 ## Acknowledgements
 
-Thank you to Ralph Peterson, Caspar Goedecker, and Jörg Rychen, who were all extremely helpful with designing and troubleshooting this system.
+Thank you to Ralph Peterson, Caspar Goedecker, Jörg Rychen, Manu Madhav, and Amy Wong, who were all extremely helpful with designing and troubleshooting this system. 
 
 
 
