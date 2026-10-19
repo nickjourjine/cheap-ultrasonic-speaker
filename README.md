@@ -4,6 +4,8 @@ This repository contains a parts list and a protocol for assembling an ultrasoni
 
 Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., Choudhri, A., Falkner, A., Murthy, M., Schneider, D. and Sanes, D., 2024. Vocal Call Locator Benchmark (VCL) for localizing rodent vocalizations from multi-channel audio. Advances in Neural Information Processing Systems, 37, pp.106370-106382.
 
+**Update: 2026-10-08**:
+Drs. Manu Madhav and Amy Wong at the [University of British Columbia](https://www.nc4.sbme.ubc.ca/our-team) have contributed troubleshooting tips using a Raspberry Pi 4B running Linux kernel 6.1.77. These tips have now been added as notes to steps 4 and 5 below. Thank you to both of them for their contribution!
 
 **Update: 2026-05-20**:
 
@@ -41,7 +43,7 @@ Bioacoustics researchers studying rodents and bats need speakers for ultrasonic 
 
 `Raspberry Pi 3B`: The small computer that will control the speaker and run any code for playback experiments. You can find out more about Raspberry Pi [here](https://www.raspberrypi.com/).
 
-`HiFiBerry DAC2 PRO Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio.  
+`HiFiBerry DAC2 PRO Sound Card`: A device that plugs into the Raspberry Pi, allowing it to play high quality audio. **Note**: Users have reported that another HiFiBerry Sound Card, the HiFiBerry AMP2, is incapable of producing ultrasound.
 
 `XH-M542 Amplifier`: A device that interfaces between the Raspberry Pi/Sound Card and the speaker. It is needed to amplify signals appropriately before they reach the speaker itself. Amplifiers are usually quite expensive, but the XH-M542 is very cheap for what it does. Thank you to Jörg Rychen at the University of Zürich for tipping me off to its existence!
 
@@ -93,8 +95,11 @@ The above parts constitute the speaker system. The following are tools that will
 2. Click on the little black terminal icon - it should be in the upper left on the desktop. 
 3. This should open a terminal window where you can type commands and generally interact with the Raspberry Pi. 
 4. Go to the "boot" folder, where the `config.txt` configuration file is, either by navigating to it using the mouse or typing `cd /boot/` into the terminal window.
-5. Make a copy of the configuration file (in case you need to start over) by using the Desktop interface or typing `cp /boot/config.txt /boot/config_backup.txt`
-6. Now open the `config.txt` file (e.g., with `sudo nano /boot/config.txt`), find the line with `dtoverlay`, and replace whatever is there with `dtoverlay=hifiberry-dacplus`. It is possible that there is no line with "dtoverlay". If not, just copy/paste `dtoverlay=hifiberry-dacplus` into the file and save.
+    **Note**: on Raspberry Pi 4B, this file is located in `/boot/firmware/`. 
+5. Make a copy of the configuration file (in case you need to start over) by using the Desktop interface or typing `cp /boot/config.txt /boot/config_backup.txt`.
+    **Note**: On Raspberry Pi 4B, do `cp /boot/firmware/config.txt /boot/firmware/config_backup.txt`
+6. Now open the `config.txt` file, and add `dtoverlay=hifiberry-dacplus` on its own line. It is possible that there is no line with "dtoverlay". Also find `dtoverlay=vc4-kms-v3d` and change it to `dtoverlay=vc4-kms-v3d,noaudio` to remove the driver for the onboard sound.
+    **Note**: On a Raspberry Pi 4B running Linux kernel 6.1.77, use `dtoverlay=hifiberry-dacplus-pro` instead of `dtoverlay=hifiberry-dacplus`
 7. Reboot the Raspberry Pi by typing `sudo reboot` into the terminal window and hitting enter.
 8. Now in the terminal, type `cat /proc/asound/cards`. You should see something like the following, indicating that the Hifiberry sound card is recognized.  
 ```
@@ -123,7 +128,24 @@ then
 default-sample-rate = 192000
 ```
 
-Save the file and reboot the Raspberry Pi as above (`sudo reboot`).
+Save the file and reboot the Raspberry Pi as above (`sudo reboot`). 
+
+See `Test the speaker` below for scripts to playback test sounds after wiring it up.
+
+**Note 1**: If you still cannot generate ultrasound after `default-sample-rate = 192000`, the problem may be `pulseaudio`. Disabling it with the following may help:
+
+```
+systemctl --user stop pulseaudio.socket pulseaudio.service
+```
+
+**Note 2**: Generating synthetic ultrasound directly with SoX, e.g.
+
+```
+sox -n -r 192000 -b 32 tone24k.wav synth 5 sine 24000
+aplay -D plughw:0 tone24k.wav
+```
+
+may produce aliasing, even if `default-sample-rate = 192000` and pulseaudio is disabled. I recommend generating and testing synthetic sounds directly with `scripts/generate_sine.py` (see `Test the speaker` below for details).
 
 ## Wire everything together
 Now you will connect the Raspberry Pi to the amplifier, the amplifier to the speaker, and the amplifier to its power source using the following wiring diagram:
@@ -146,7 +168,7 @@ Now you will connect the Raspberry Pi to the amplifier, the amplifier to the spe
 
 ![DAC2 PRO](images/DAC2_pro.png)
 
-Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note were are only wiring for one audio channel.
+Insert the red breadboard wire onto the left pin (pin 6), and the black breadboard wire onto the ground pin (pin 4). Note we are only wiring for one audio channel.
 
 2. Connect the black ground wire to the - (negative) port on the amplifier IN terminal. A small flat-head screw driver is helpful. Just loosen the clamp, insert the stripped end of the wire, then tighten it until secure.
 
@@ -156,7 +178,7 @@ Insert the red breadboard wire onto the left pin (pin 6), and the black breadboa
 **Without plugging the amplifier power source into an outlet**, connect the power source to the terminal labeled VCC on the amplifier. As you did above for the IN terminal, loosen the - clamp of the VCC terminal, insert the stripped black (-) wire from the power source, and tighten. Do the same for the red (+) wire in the power source and the + clamp of the VCC terminal.
 
 ### Step 4: Connect the amplifier to the speaker
-Insert the stripped end of the black alligator clip into the - port of the amplilfier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
+Insert the stripped end of the black alligator clip into the - port of the amplifier's OUT terminal and tighten until secure. Do the same for the stripped end of the red alligator clip and the + port. The speaker has two little metal tabs sticking up from its back, marked with a + and a -. Attach the red alligator clip to the + tab and the black alligator clip to the - tab.
 
 Now you should have something that looks roughly like this:
 
@@ -172,8 +194,24 @@ To give everything power, all you need to do is plug in the Raspberry Pi and amp
    - Make sure there are no stray or exposed wires that could potentially touch
    - Double check that the power supply is correct
 
-
 ## Test the speaker
+### Sine test
+Copy `scripts/generate_sine.py` (Dr. Manu Madhav, University of British Columbia) to the Raspberry Pi. After stopping PulseAudio as in Step 5, run:
+
+```
+python3 generate_sine.py 
+aplay -D hw:0 output.wav
+```
+
+This should generate something like the following:
+
+![Sine spectrogram, 25 kHz to 70 kHz](images/synthetic_playback_spectrogram.png)
+![Signal amplitude, 25 kHz to 70 kHz](images/synthetic_playback_amplitude.png)
+Spectrogram and signal amplitude for synthetic playback between 25 kHz and 70 kHz, using `generate_sine.py`. Note drop in amplitude at frequencies above ~ 30 kHz. Images provided by Dr. Manu Madhav and Amy Wong, University of British Columbia.
+
+You can change the frequency in the two `sound_wave(...)` lines to test other tone sweeps. 
+
+### Ultrasonic vocalization test
 1. Record the ultrasonic calls you would like to play back, manipulate them to suit your experiment, then copy them onto a small USB stick.
 2. Attach this USB stick to one of the USB ports on your Raspberry Pi
 3. You should now be able to find your files and play them. For example:
@@ -190,25 +228,11 @@ play path/to/ultrasonic_calls.wav repeat 3
 
 will play your file 3 times.  
 
-You can also play synthetic sounds, which can be a good way to test sensitivity across a frequency range. For example,
-
-```
-play -n synth 2 sin 70000 vol -10dB
-```
-
-will play a 70 kHz sine wave for 2 seconds (using vol -10dB to reduce output volume)
-
-See the example_playback_loop.sh script in this repository for an example playback experiment, and example_sensitivity_test.sh for a script that loops through synthetic tones at different ultrasonic frequencies. You can run it on your own Raspberry Pi by copying it to the same directory as your audio file, then typing 
+See the example_playback_loop.sh script in this repository for an example playback experiment. You can run it on your own Raspberry Pi by copying it to the same directory as your audio file, then typing 
 
 ```
 sh path/to/example_playback_loop.sh
 ```
-or
-```
-sh path/to/example_sensitivity_test.sh
-```
-
-into the Terminal.
 
 4. I suggest playing around with these while recording the speaker output using an ultrasonic microphone. You might consider setting the microphone at a distance from the speaker that matches the distance from the microphone to the vocalizing animal at the time of the recording. This will allow you to (approximately) match the loudness of the call to the loudness of the vocalizing animal. To change loudness, change the gain on the amplifier by turning the screw marked "VOL", but note that this screw is **EXTREMELY** sensitive. Be careful not to blow out your speaker. Here's an example of what a testing setup with microphone might look like (note that this is not an ideal setup: if you can, recreate it in a sound attenuating chamber to reduce background ambient noise):
 
@@ -216,7 +240,7 @@ into the Terminal.
 
 Here is an example of the kind of signal we recorded with the setup above:
 
-![example playback test](images/playback_comparison.png)
+![example playback test](images/mouse_USV_playback_spectrogram.png)
 
 
   **Top image**: original audio recorded with an Avisoft CM16/CMPA microphone at a distance of 15 cm from a vocalizing mouse
