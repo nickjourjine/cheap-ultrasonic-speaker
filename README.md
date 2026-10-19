@@ -6,7 +6,7 @@ Peterson, R., Tanelus, A., Ick, C., Mimica, B., Muttath Joseph, N.F., Ivan, V., 
 
 **Update: 2026-10-19**:
 
-Drs. Manu Madhav and Amy Wong at the [University of British Columbia](https://www.nc4.sbme.ubc.ca/our-team) have contributed troubleshooting tips using a Raspberry Pi 4B running Linux kernel 6.1.77. These tips have now been added as notes to steps 4 and 5 below. Thank you to both of them for their contribution!
+Drs. Manu Madhav and Amy Wong at the [University of British Columbia](https://www.nc4.sbme.ubc.ca/our-team) have contributed troubleshooting tips using a Raspberry Pi 4B running Linux kernel 6.1.77. These tips have now been added as notes to the steps below. Thank you to both of them for their contribution!
 
 **Update: 2026-05-20**:
 
